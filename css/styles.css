@@ -1,0 +1,212 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+#game-container {
+    position: relative;
+    width: 380px;
+    height: 620px;
+    min-width: 380px;
+    min-height: 620px;
+    background: #333;
+    border: 5px solid #002266;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+#game-board {
+    background: #000;
+    width: 80%;
+    height: 60%;
+    margin-top: 20px;
+}
+#next-letter-panel {
+    margin-top: 20px;
+    width: 80%;
+    padding: 10px;
+    background: #222;
+    border: 3px solid #002266;
+    color: #fff;
+    box-sizing: border-box;
+}
+#controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+}
+#panel {
+    margin-top: 20px;
+    display: flex;
+    width: 80%;
+}
+.control-button {
+    width: 60px;
+    height: 60px;
+    margin: 10px;
+    background: #87CEFA;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 24px;
+}
+.control-button:hover {
+    background: #4682B4;
+    color: #fff;
+}
+
+#settings-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #444;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #002266;
+    display: none;
+    z-index: 100;
+}
+.settings-option {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+.settings-option label {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #fff;
+}
+select, input[type="checkbox"] {
+    margin-left: 10px;
+}
+input[type="color"] {
+    margin-left: 10px;
+    width: 40px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+input[type="color"]:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.icon-button {
+    background-color: #007bff; /* Mavi arka plan */
+    border: none;
+    border-radius: 50%; /* Daire yapmak için */
+    width: 50px; /* Genişlik ve yükseklik aynı olacak */
+    height: 50px;
+    display: flex;
+    align-items: center; /* Dikey ortalama */
+    justify-content: center; /* Yatay ortalama */
+    cursor: pointer;
+}
+
+.icon-button svg {
+    width: 24px; /* İkonun boyutunu ayarlayın */
+    height: 24px;
+}
+.icon-button:hover {
+    transform: scale(1.1);
+    background-color: rgba(0, 0, 0, 0.1); /* Buton hover edildiğinde arka planı hafif gri yap */
+}
+
+.icon-button:active {
+    transform: scale(0.9);
+}
+#settings-toggle {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #87CEFA;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+#settings-toggle:hover {
+    background: #4682B4;
+    color: #fff;
+}
+#pause-resume-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #87CEFA;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+#pause-resume-btn:hover {
+    opacity: 0.8; /* Hover efekti */
+    background: #4682B4;
+    color: #fff;
+}
+
+
+#restart-btn {
+    background: #87CEFA;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    
+}
+#restart-btn:hover {
+    opacity: 0.8; /* Hover efekti */
+    background: #4682B4;
+}
+
+#start-btn {
+    padding: 10px;
+    background: #87CEFA;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+#start-btn:hover {
+    background: #4682B4;
+    color: #fff;
+}
+.letter-box {
+    position: absolute;
+    top: 10px;
+    right: 70px;  /* Pause/Resume butonuyla karışmaması için biraz içeriye alınmış */
+    width: 50px;
+    height: 50px;
+    background-color: #455982;
+    color: #ffffff;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 200;
+}
+
+

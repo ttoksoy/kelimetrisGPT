@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Kelime Tetrisi</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    
+    <div id="game-container">
+        <div id="game-start">
+        <button id="start-btn" class="icon-button" title="Oyunu Başlat">
+            <svg id="start-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+        </button>
+        <button id="restart-btn" class="icon-button" style="display:none;" title="Yeniden Başlat">
+            <svg id="restart-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 2v6h-6"></path>
+                <path d="M21 12a9 9 0 1 1-3-7l3 3"></path>
+            </svg>
+        </button>
+        <button id="pause-resume-btn" class="icon-button" title="Durdur/Devam Et">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40px" height="40px" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="12" fill="#87CEFA"/>
+                <rect x="8" y="5" width="3" height="14" fill="#ffffff"/>
+                <rect x="13" y="5" width="3" height="14" fill="#ffffff"/>
+            </svg>
+        </button>
+        <button id="settings-toggle" class="icon-button"  title="Ayarlar">
+            <svg id="settings-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.78 1.78 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.78 1.78 0 0 0-1.82-.33 1.78 1.78 0 0 0-1.1 1.6V21a2 2 0 0 1-4 0v-.09a1.78 1.78 0 0 0-1.11-1.6 1.78 1.78 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.78 1.78 0 0 0 .33-1.82 1.78 1.78 0 0 0-1.6-1.11H3a2 2 0 0 1 0-4h.09a1.78 1.78 0 0 0 1.6-1.11 1.78 1.78 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.78 1.78 0 0 0 1.82.33h.09a1.78 1.78 0 0 0 1.11-1.6V3a2 2 0 0 1 4 0v.09a1.78 1.78 0 0 0 1.11 1.6h.09a1.78 1.78 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.78 1.78 0 0 0-.33 1.82v.09a1.78 1.78 0 0 0 1.6 1.11H21a2 2 0 0 1 0 4h-.09a1.78 1.78 0 0 0-1.6 1.11z"></path>
+            </svg>
+        </button>
+        </div>
+        <div id="next-letter-box" class="letter-box">A</div>
+        <div id="settings-container" style="display: none;">
+            <h3>Ayarlar</h3>
+            <div class="settings-option">
+            <label for="board-size">Tahta Boyutu:</label>
+            <select id="board-size">
+                <option value="small">Küçük</option>
+                <option value="medium">Orta</option>
+                <option value="large">Büyük</option>
+            </select>
+            </div>
+            <div class="settings-option">
+                <label for="difficulty-level">Seviye:</label>
+                <select id="difficulty-level">
+                    <option value="easy">Kolay</option>
+                    <option value="medium">Orta</option>
+                    <option value="hard">Zor</option>
+                </select>
+            </div>
+            <div class="settings-option">
+                <label for="block-type">Harf Blokları:</label>
+                <select id="block-type">
+                    <option value="single">Tekli</option>
+                    <option value="double">Tekli ve İkili</option>
+                    <option value="triple">Tekli, İkili ve Üçlü</option>
+                </select>
+            </div>
+            <div class="settings-option">
+                <input type="checkbox" id="music-toggle">
+                <label for="music-toggle">Müzik Aç / Kapat</label>
+            </div>
+            <div class="settings-option">
+                <input type="checkbox" id="sound-toggle">
+                <label for="sound-toggle">Ses Efektleri Aç / Kapat</label>
+            </div>
+            <div class="settings-option">
+                <label for="color-theme">Renk Seçimi:</label>
+                <select id="color-theme">
+                    <option value="blue">Mavi</option>
+                    <option value="red">Kırmızı</option>
+                    <option value="green">Yeşil</option>
+                    <option value="orange">Turuncu</option>
+                </select>
+        </div>
+            <button id="close-settings">Tamam</button>
+        </div>
+        <canvas id="game-board" width="300" height="600"></canvas>
+        <div id="next-letter-panel">
+            <div id="next-letter">Sıradaki Harf: -</div>
+            <div id="score">Skor: 0</div>
+<div id="difficulty-display" style="font-size: 20px; color: white; text-align: center; margin-top: 10px;">
+    Zorluk Seviyesi: Kolay
+</div>
+            <div id="last-found-word">Son Bulunan Kelime: -</div>
+            <button id="show-words-btn" onclick="toggleWordList()">Bulunan Kelimeleri Göster</button>
+            <div id="all-found-words" style="display: none;">Tüm Bulunan Kelimeler:</div>
+        </div>
+        <div id="controls">
+            <button class="control-button" id="left-btn">&#8592;</button>
+            <button class="control-button" id="down-btn">&#8595;</button>
+            <button class="control-button" id="right-btn">&#8594;</button>
+        </div>
+    </div>
+    <script src="js/game.js"></script>
+</body>
+</html>
